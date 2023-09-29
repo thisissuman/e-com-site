@@ -5,10 +5,16 @@ const Category = () => {
     <div className="shop-by-category">
       <div className="categories">
         <div className="category">
-            <img src={cat1} alt="" />
-            <img src={cat1} alt="" />
-            <img src={cat1} alt="" />
-            <img src={cat1} alt="" />
+          <img src={cat1} alt="" />
+        </div>
+        <div className="category">
+          <img src={cat1} alt="" />
+        </div>
+        <div className="category">
+          <img src={cat1} alt="" />
+        </div>
+        <div className="category">
+          <img src={cat1} alt="" />
         </div>
       </div>
     </div>
