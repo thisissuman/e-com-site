@@ -11,6 +11,7 @@ import "./Header.scss";
 
 const Header = () => {
   const [scroled, setscroled] = useState(false);
+  const [showcart, setshowcart] = useState(false);
   const handelScroll = () => {
     const offset = window.scrollY;
     if (offset > 200) {
@@ -22,25 +23,28 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`main-header ${scroled ? "sticky-header" : ""}`}>
-      <div className="header-component">
-        <ul className="left">
-          <li>Home</li>
-          <li>About</li>
-          <li>Category</li>
-        </ul>
+    <>
+      <header className={`main-header ${scroled ? "sticky-header" : ""}`}>
+        <div className="header-component">
+          <ul className="left">
+            <li>Home</li>
+            <li>About</li>
+            <li>Category</li>
+          </ul>
 
-        <div className="center">DivineDealsIndia</div>
-        <div className="right">
-          <TbSearch />
-          <AiOutlineHeart />
-          <span className="cart-icon">
-            <CgShoppingCart />
-            <span>5</span>
-          </span>
+          <div className="center">DivineDealsIndia</div>
+          <div className="right">
+            <TbSearch />
+            <AiOutlineHeart />
+            <span className="cart-icon" onClick={() => setshowcart(true)}>
+              <CgShoppingCart />
+              <span>5</span>
+            </span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      {showcart && <Cart setshowcart={setshowcart} />}
+    </>
   );
 };
 
