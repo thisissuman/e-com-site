@@ -2,15 +2,27 @@ import "./Home.scss";
 import Banner from "./Banner/Banner";
 import Category from "../Home/Category/Category";
 import Products from "../Products/Products";
+import { useEffect } from "react";
+import { fetchDataFromApi } from "../../utils/api";
 const Home = () => {
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const getCategories = () => {
+    fetchDataFromApi("/api/category").then((res) => {
+      console.log(res);
+    });
+  };
+
   return (
     <div>
       <Banner />
       <div className="main-content">
-        <dib className="layout">
+        <div className="layout">
           <Category />
-          <Products headingText="Popular Products"/>
-        </dib>
+          <Products headingText="Popular Products" />
+        </div>
       </div>
     </div>
   );
